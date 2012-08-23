@@ -4,7 +4,10 @@
 # custom rules
 job_show_user:
   url:   /job/:company/:location/:id/:position
-  param: { module: job, action: show }
+  param: { module: job, action: show } 
+  requirements:
+    id: \d+
+    sf_method: [get]
 
 # default rules
 homepage:
