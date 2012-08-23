@@ -5,6 +5,7 @@
 job_show_user:
   url:   /job/:company/:location/:id/:position
   param: { module: job, action: show } 
+  class: sfDoctrineRoute
   options: { model: JobeetJob, type: object }
   requirements:
     id: \d+
