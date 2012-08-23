@@ -3,7 +3,7 @@
 
 # custom rules
 job_show_user:
-  url:   /job/:company/:location/:id/:position
+  url:   /job/:company_slug/:location_slug/:id/:position_slug
   param: { module: job, action: show } 
   class: sfDoctrineRoute
   options: { model: JobeetJob, type: object }
