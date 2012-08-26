@@ -12,4 +12,11 @@ $t->is(Jobeet::slugify('sensio  '), 'sensio', '::slugify() removes - at the end 
 $t->is(Jobeet::slugify('paris,france'), 'paris-france', '::slugify() replaces non-ASCII characters by a -');
 $t->is(Jobeet::slugify(''), 'n-a', '::slugify() converts the empty string to n-a');
 $t->is(Jobeet::slugify(' - '), 'n-a', '::slugify() converts a string that only contains non-ASCII characters to n-a');
-$t->is(Jobeet::slugify('DÃ©veloppeur Web'), 'developpeur-web', '::slugify() removes accents');
+if (function_exists('iconv'))
+{
+  $t->is(Jobeet::slugify('DÃ©veloppeur Web'), 'developpeur-web', '::slugify() removes accents');
+}
+else
+{
+  $t->skip('::slugify() removes accents - iconv not installed');
+}
