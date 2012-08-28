@@ -48,6 +48,7 @@ $browser->info('1 - The homepage')->
   get('/')->
   info('  1.4 - Jobs are sorted by date')->
   with('response')->begin()->
-    checkElement(sprintf('.category_programming tr:first a[href*="/%d/"]', $job->getId()))->
+    checkElement(sprintf('.category_programming tr:first a[href*="/%d/"]',
+      $browser->getMostRecentProgrammingJob()->getId()))->
   end()
 ;
