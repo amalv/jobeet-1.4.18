@@ -33,3 +33,21 @@ $browser->info('1 - The homepage')->
     checkElement('.category_programming .more_jobs')->
   end()
 ;
+
+$q = Doctrine_Query::create()
+  ->select('j.*')
+  ->from('JobeetJob j')
+  ->leftJoin('j.JobeetCategory c')
+  ->where('c.slug = ?', 'programming')
+  ->andWhere('j.expires_at > ?', date('Y-m-d', time()))
+  ->orderBy('j.created_at DESC');
+ 
+$job = $q->fetchOne();
+ 
+$browser->info('1 - The homepage')->
+  get('/')->
+  info('  1.4 - Jobs are sorted by date')->
+  with('response')->begin()->
+    checkElement(sprintf('.category_programming tr:first a[href*="/%d/"]', $job->getId()))->
+  end()
+;
