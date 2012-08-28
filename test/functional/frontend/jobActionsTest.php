@@ -24,3 +24,12 @@ $browser->info('1 - The homepage')->
   with('response')->
     checkElement('.category_programming tr', $max)
 ;
+
+$browser->info('1 - The homepage')->
+  get('/')->
+  info('  1.3 - A category has a link to the category page only if too many jobs')->
+  with('response')->begin()->
+    checkElement('.category_design .more_jobs', false)->
+    checkElement('.category_programming .more_jobs')->
+  end()
+;
