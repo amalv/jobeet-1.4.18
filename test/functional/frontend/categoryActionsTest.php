@@ -17,7 +17,7 @@ $browser->info('1 - The category page')->
  
   info(sprintf('  1.2 - Categories with more than %s jobs also have a "more" link', sfConfig::get('app_max_jobs_on_homepage')))->
   get('/')->
-  click('Programming')->
+  click('27')->
   with('request')->begin()->
     isParameter('module', 'category')->
     isParameter('action', 'show')->
