@@ -12,9 +12,6 @@ class JobeetJobForm extends BaseJobeetJobForm
 {
   public function configure()
   {
-    unset(
-      $this['created_at'], $this['updated_at'],
-      $this['expires_at'], $this['is_activated']
-    );
+    $this->useFields(array('category_id', 'type', 'company', 'logo', 'url', 'position', 'location', 'description', 'how_to_apply', 'token', 'is_public', 'email'));
   }
 }
