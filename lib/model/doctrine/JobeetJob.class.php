@@ -12,6 +12,12 @@
  */
 class JobeetJob extends BaseJobeetJob
 {
+  public function publish()
+  {
+    $this->setIsActivated(true);
+    $this->save();
+  }
+
   public function getTypeName()
   {
     $types = Doctrine_Core::getTable('JobeetJob')->getTypes();
