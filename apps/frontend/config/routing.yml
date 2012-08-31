@@ -11,6 +11,7 @@ category:
 job:
   class:   sfDoctrineRouteCollection
   options: { model: JobeetJob }
+  requirements: { token: \w+ }
  
 job_show_user:
   url:     /job/:company_slug/:location_slug/:id/:position_slug
