@@ -94,5 +94,13 @@ $browser->info('3 - Post a Job page')->
 
   with('form')->begin()->
   hasErrors(false)->
+  end()->
+
+  with('response')->isRedirected()->
+  followRedirect()->
+   
+  with('request')->begin()->
+    isParameter('module', 'job')->
+    isParameter('action', 'show')->
   end()
 ;
