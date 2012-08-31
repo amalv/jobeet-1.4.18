@@ -75,6 +75,7 @@ $browser->info('3 - Post a Job page')->
   end()->
  
   click('Preview your job', array('job' => array(
+    'type'         => 'full-time',
     'company'      => 'Sensio Labs',
     'url'          => 'http://www.sensio.com/',
     'logo'         => sfConfig::get('sf_upload_dir').'/jobs/sensio-labs.gif',
@@ -89,5 +90,9 @@ $browser->info('3 - Post a Job page')->
   with('request')->begin()->
     isParameter('module', 'job')->
     isParameter('action', 'create')->
+  end()->
+
+  with('form')->begin()->
+  hasErrors(false)->
   end()
 ;
