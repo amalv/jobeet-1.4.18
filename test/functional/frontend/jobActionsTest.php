@@ -64,3 +64,13 @@ $browser->info('2 - The job page')->
   get(sprintf('/job/sensio-labs/paris-france/%d/web-developer', $browser->getExpiredJob()->getId()))->
   with('response')->isStatusCode(404)
 ;
+
+$browser->info('3 - Post a Job page')->
+  info('  3.1 - Submit a Job')->
+ 
+  get('/job/new')->
+  with('request')->begin()->
+    isParameter('module', 'job')->
+    isParameter('action', 'new')->
+  end()
+;
