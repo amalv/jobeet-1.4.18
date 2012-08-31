@@ -2,8 +2,12 @@
   <h3>Admin</h3>
   <ul>
     <?php if (!$job->getIsActivated()): ?>
-      <li><?php echo link_to('Edit', 'job_edit', $job) ?></li>
-      <li><?php echo link_to('Publish', 'job_edit', $job) ?></li>
+      <li>
+        <?php echo link_to('Edit', 'job_edit', $job) ?>
+      </li>
+      <li>
+        <?php echo link_to('Publish', 'job_publish', $job, array('method' => 'put')) ?>
+      </li>
     <?php endif ?>
     <li><?php echo link_to('Delete', 'job_delete', $job, array('method' => 'delete', 'confirm' => 'Are you sure?')) ?></li>
     <?php if ($job->getIsActivated()): ?>
