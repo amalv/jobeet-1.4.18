@@ -1,3 +1,6 @@
+<?php if ($sf_request->getParameter('token') == $job->getToken()): ?>
+  <?php include_partial('job/admin', array('job' => $job)) ?>
+<?php endif ?>
 <?php use_stylesheet('job.css') ?>
 <?php use_helper('Text') ?>
 <?php slot(
@@ -32,9 +35,5 @@
  
   <div class="meta">
     <small>posted on <?php echo $job->getDateTimeObject('created_at')->format('m/d/Y') ?></small>
-  </div>
- 
-  <div style="padding: 20px 0">
-    <a href="<?php echo url_for('job_edit', $job) ?>">Edit</a>
   </div>
 </div>
