@@ -36,7 +36,8 @@ class jobActions extends sfActions
   {
     $job = new JobeetJob();
     $job->setType('full-time');
-    $this->form = new JobeetJobForm();
+    
+    $this->form = new JobeetJobForm($job);
   }
 
   public function executeCreate(sfWebRequest $request)
