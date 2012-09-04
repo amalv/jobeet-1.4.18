@@ -104,3 +104,14 @@ $browser->info('3 - Post a Job page')->
     isParameter('action', 'show')->
   end()
 ;
+
+$browser->setTester('doctrine', 'sfTesterDoctrine');
+
+$browser->
+with('doctrine')->begin()->
+  check('JobeetJob', array(
+    'location'     => 'Atlanta, USA',
+    'is_activated' => false,
+    'is_public'    => false,
+  ))->
+end();
