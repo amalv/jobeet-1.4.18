@@ -13,6 +13,21 @@ require_once dirname(__FILE__).'/../lib/jobGeneratorHelper.class.php';
  */
 class jobActions extends autoJobActions
 {
+  public function executeListDeleteNeverActivated(sfWebRequest $request)
+  {
+    $nb = Doctrine_Core::getTable('JobeetJob')->cleanup(60);
+
+    if ($nb)
+    {
+      $this->getUser()->setFlash('notice', sprintf('%d never activated jobs have been deleted successfully.', $nb));
+    }
+    else
+    {
+      $this->getUser()->setFlash('notice', 'No job to delete.');
+    }
+
+    $this->redirect('jobeet_job');
+  }
   public function executeListExtend(sfWebRequest $request)
   {
     $job = $this->getRoute()->getObject();
