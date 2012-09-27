@@ -13,6 +13,16 @@ require_once dirname(__FILE__).'/../lib/jobGeneratorHelper.class.php';
  */
 class jobActions extends autoJobActions
 {
+  public function executeListExtend(sfWebRequest $request)
+  {
+    $job = $this->getRoute()->getObject();
+    $job->extend(true);
+
+    $this->getUser()->setFlash('notice', 'The selected jobs have been extended successfully.');
+
+    $this->redirect('jobeet_job');
+  }
+
   public function executeBatchExtend(sfWebRequest $request)
   {
     $ids = $request->getParameter('ids');
