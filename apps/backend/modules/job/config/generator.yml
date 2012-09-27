@@ -17,7 +17,9 @@ generator:
         is_activated: { label: Activated?, help: Whether the user has activated the job, or not }
         is_public:    { label: Public?, help: Whether the job can also be published on affiliate websites, or not }
       list:    
-        batch_actions: {}
+        batch_actions: 
+          _delete: ~
+          extend: ~
         max_per_page: 10
         sort: [expires_at, desc]
         title: Job Management
