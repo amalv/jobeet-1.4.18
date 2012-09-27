@@ -18,6 +18,7 @@ generator:
         is_public:    { label: Public?, help: Whether the job can also be published on affiliate websites, or not }
       list:    
         title: Job Management
+        display: [company, position, location, url, is_activated, email]
       filter:  ~
       form:    ~
       edit:    
