@@ -17,7 +17,8 @@
           </a>
         </h1>
       </div>
- 
+
+    <?php if ($sf_user->isAuthenticated()): ?>
       <div id="menu">
         <ul>
           <li>
@@ -28,11 +29,12 @@
           </li>
         </ul>
       </div>
- 
+    <?php endif ?>
+
       <div id="content">
         <?php echo $sf_content ?>
       </div>
- 
+
       <div id="footer">
         <img src="/images/jobeet-mini.png" />
         powered by <a href="http://www.symfony-project.org/">
