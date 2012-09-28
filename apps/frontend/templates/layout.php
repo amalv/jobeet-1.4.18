@@ -16,7 +16,7 @@
           <h1><a href="<?php echo url_for('homepage') ?>">
             <img src="/images/logo.jpg" alt="Jobeet Job Board" />
           </a></h1>
- 
+
           <div id="sub_header">
             <div class="post">
               <h2>Ask for people</h2>
@@ -24,7 +24,7 @@
                 <a href="<?php echo url_for('job_new') ?>">Post a Job</a>
               </div>
             </div>
- 
+
             <div class="search">
               <h2>Ask for a job</h2>
               <form action="" method="get">
@@ -39,25 +39,25 @@
           </div>
         </div>
       </div>
- 
+
       <div id="content">
         <?php if ($sf_user->hasFlash('notice')): ?>
           <div class="flash_notice">
             <?php echo $sf_user->getFlash('notice') ?>
           </div>
         <?php endif ?>
- 
+
         <?php if ($sf_user->hasFlash('error')): ?>
           <div class="flash_error">
             <?php echo $sf_user->getFlash('error') ?>
           </div>
         <?php endif ?>
- 
+
         <div class="content">
           <?php echo $sf_content ?>
         </div>
       </div>
- 
+
       <div id="footer">
         <div class="content">
           <span class="symfony">
