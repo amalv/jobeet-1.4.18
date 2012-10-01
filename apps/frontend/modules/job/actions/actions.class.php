@@ -47,6 +47,7 @@ class jobActions extends sfActions
     // store the new job history back into the session
     $this->getUser()->setAttribute('job_history', $jobs);
   }
+
   public function executeNew(sfWebRequest $request)
   {
     $job = new JobeetJob();
